@@ -1,10 +1,17 @@
-# Solana Web3.js Keypair and airdrop
-A typescript program that generates keypairs and requests airdrop
+# ❇ Solana Web3.js - A final Project that interacts with WBA Solana program on devnet 
+A typescript program that generates keypairs, requests airdrop, transfer sol and interacts with a PDA program.
+> **Onchain Transaction Link:** 
+[`https://explorer.solana.com/`](https://explorer.solana.com/tx/2azmp1PbeoPFVZjA9crsvem6FtuJuwRDtwWqDvYYMmMWCCL1nXHm1yZ7RyZcmQpz5n2T2vuYKvWVLYRu22jnRFoH?cluster=devnet)
 
 ## Prerequisites
 1. Node JS Installed
-2. Solana CLI installed
+2. Solana CLI installed (Optional if using devnet)
 3. NPM Installed and Yarn Installed
+
+## Tech stack used
+- uses TypeScript and NodeJS
+- yarn (as the package manager)
+
 
 ## Setup
 - Clone the repo by running `git clone https://github.com/HermanCeaser/airdrop.git`
@@ -22,4 +29,24 @@ A typescript program that generates keypairs and requests airdrop
   ```
 - Then run the airdop command by typing  `yarn airdop`
 - Check the transaction hash on the explorer by clicking the link to see your account balance
+- Run `yarn transfer` to transfer some SOL to a randomly generated keypair and view the transaction on blockchain
+- Finally run `yarn enroll` to interact with an onchain program that WBA created. Change the github username in line 9 of [`enroll.ts`](./enroll.ts) to your username if you want to sign this transaction
 
+### About the Files in the project
+
+#### `keygen.ts`
+
+A script that has code to generate a new keypair using web3.js and prints it's  public and secretkey to the console.
+transactions to the blockchain
+
+#### `airdrop.ts`
+
+A script that requests airdrop to the generated wallet that is saved to `dev-wallet.json` file 
+
+#### `transfer.ts`
+
+Demonstrates how to generate a new wallet and transfer SOL(Lamports) to the generated wallet
+
+#### `enroll.ts`
+
+Demonstrates how to create a PDA address and use it to interact with another program
